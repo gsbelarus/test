@@ -7,6 +7,9 @@ export class Semaphore {
   private _queue: Unlock[] = [];
 
   constructor(maxAllowed: number = 1) {
+    if (maxAllowed < 1) {
+      throw new Error('Max allowed must be greater than 0');
+    }
     this._maxAllowed = maxAllowed;
     this._permits = maxAllowed;
   }
@@ -29,7 +32,7 @@ export class Semaphore {
       return;
     }
 
-    return new Promise( resolve => this._queue.push(resolve) );
+    return new Promise(resolve => this._queue.push(resolve));
   }
 
   public release(): void {
