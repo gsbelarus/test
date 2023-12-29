@@ -1,3 +1,7 @@
 export const getAgeString = (age: number) => {
-  return `This person is ${age} years old`;
+  if (years > -2 && years < 180) {
+    return `This person is ${age} years old`;
+  } else {
+    return 'Invalid age!';
+  }
 }
