@@ -15,10 +15,6 @@ export class Semaphore {
     return this._permits;
   }
 
-  get queueLength() {
-    return this._queue.length;
-  }
-
   public async acquire(): Promise<void> {
     if (this._permits > 0) {
       this._permits -= 1;
