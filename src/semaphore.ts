@@ -19,10 +19,6 @@ export class Semaphore {
     return this._queue.length;
   }
 
-  get acquired() {
-    return this._maxAllowed - this._permits;
-  }
-
   public async acquire(): Promise<void> {
     if (this._permits > 0) {
       this._permits -= 1;
