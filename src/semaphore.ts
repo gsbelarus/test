@@ -5,8 +5,10 @@ export class Semaphore {
   private _maxAllowed: number;
   private _permits: number;
   private _queue: Unlock[] = [];
+  private _name: string;
 
-  constructor(maxAllowed: number = 1) {
+  constructor(name: string; maxAllowed: number = 1) {
+    this._name = name;
     this._maxAllowed = maxAllowed;
     this._permits = maxAllowed;
   }
